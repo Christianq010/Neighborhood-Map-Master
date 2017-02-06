@@ -42,9 +42,13 @@
     width: 250px;
 }
 
+.navbar-heading {
+    margin-top: 0;
+}
+
 #map {
     bottom:0;
-    height: 65%;
+    height: 78%;
     left: 0;
     position: absolute;
     right: 0;
@@ -52,7 +56,7 @@
 
 #page-content-wrapper {
     overflow: hidden;
-    height: 17em;
+    height: 10em;
     width: 100%;
     position: absolute;
     padding: 15px;
@@ -71,7 +75,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 300px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -114,6 +118,14 @@
     background: none;
 }
 
+.input-group {
+    margin: 12em 0 5em 0;
+}
+
+.input-group-btn {
+    width: 2em;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -124,7 +136,7 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 300px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -132,7 +144,7 @@
     }
 
     #page-content-wrapper {
-        padding: 20px;
+        padding: 20px 20px 20px 21em;
         position: relative;
     }
 
