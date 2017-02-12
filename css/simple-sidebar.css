@@ -107,6 +107,7 @@
     height: 65px;
     font-size: 18px;
     line-height: 60px;
+    color: #e5e3df;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -119,7 +120,7 @@
 }
 
 .input-group {
-    margin: 12em 0 5em 0;
+    margin: 5em 0 5em 0;
 }
 
 .input-group-btn {

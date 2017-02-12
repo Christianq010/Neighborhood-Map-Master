@@ -33,49 +33,50 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Find Places in Colombo
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Foursquare</a>
-                </li>
-                <li>
-                    <a href="#">Facebook</a>
-                </li>
+                <li class="sidebar-brand">Search for Locations</li>
             </ul>
 
             <!--Search Buttons -->
                 <div class="input-group">
                     <div class="row">
                     <div class="col-md-12 col-md-offset-1">
-                        <button id="show-listings" type="button" class="btn btn-secondary">Show Listings</button>
-                        <!--<input id="show-listings" type="text" class="form-control" placeholder="Search for ...">-->
-                        <!--<span class="input-group-btn">-->
-                        <!--<button class="btn btn-secondary" type="button">Go!</button>-->
-                        <!--</span>-->
+                        <!--<button id="show-listings" type="button" class="btn btn-secondary">Show Listings</button>-->
+                        <input id="zoom-to-area-text" type="text" class="form-control" placeholder="Search for ...">
+                        <span class="input-group-btn">
+                        <input id="zoom-to-area" class="btn btn-secondary" type="button" value="Zoom" style="position: absolute;">
+                        </span>
                     </div>
                     </div>
                     <br>
                     <div class="row">
                     <div class="col-md-12 col-md-offset-1">
-                        <button id="hide-listings" type="button" class="btn btn-secondary">Hide Listings</button>
+                        <button id="show-listings" type="button" class="btn btn-secondary">Show Listings</button>
                     </div>
                     </div>
-
-                    <!--<div class="col-md-6 col-md-offset-0">-->
-                        <!--<span class="input-group-btn">-->
-                            <!--<button class="btn btn-secondary" type="button">Go!</button>-->
-                          <!--</span>-->
-                        <!--<input id="hide-listings" type="text" class="form-control" placeholder="Search for ...">-->
-                    <!--</div>-->
                 </div>
+
+            <!--List -->
+            <!--<ul class="sidebar-nav">-->
+                <!--<li class="sidebar-brand">-->
+                    <!--<a href="#">-->
+                        <!--Filter your Results-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="#">Restaurants</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="#">Bars, Cafe's etc</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+
+
         </div>
+        <!-- /#sidebar-wrapper -->
     </div>
     <!-- /#wrapper -->
 
-        <!-- /#sidebar-wrapper -->
+
 
         <!--Page Content-->
             <div id="page-content-wrapper">
@@ -97,14 +98,18 @@
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/lib/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <!--Knockout Library-->
+    <script src="js/lib/knockout-v3.4.1.js"></script>
     <!-- App Main Script -->
     <script src="js/app.js"></script>
+    <!--Google Map Script-->
+    <script src="js/maps2.js"></script>
     <!--Google Map API-->
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=initMap">
     </script>
 
 </body>
