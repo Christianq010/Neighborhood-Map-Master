@@ -1,10 +1,9 @@
-var map;
+    var map;
 
-// Create a new blank array for all the listing markers.
-var markers = [];
+    // Create a new blank array for all the listing markers.
+    var markers = [];
 
-function initMap() {
-    // Create a styles array to use with the map.
+    // A custom styles array to use with the map.
     var styles = [
         {
             "stylers": [
@@ -150,74 +149,15 @@ function initMap() {
         }
     ];
 
-    // Constructor creates a new map - only center and zoom are required.
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 6.911652, lng: 79.849640},
-        zoom: 13,
-        styles: styles,
-        mapTypeControl: false
-    });
-
-    // This autocomplete is for use in the geocoder entry box.
-    var zoomAutocomplete = new google.maps.places.Autocomplete(
-        document.getElementById('zoom-to-area-text'));
-    //Bias the boundaries within the map for the zoom to area text.
-    zoomAutocomplete.bindTo('bounds', map);
-
-    var largeInfowindow = new google.maps.InfoWindow();
-
-
-    // Style the markers a bit. This will be our listing marker icon.
+    // Color for Our listing marker icon.
     var defaultIcon = makeMarkerIcon('f2657a');
 
-    // Create a "highlighted location" marker color for when the user
+    // A "highlighted location" marker color for when the user
     // mouses over the marker.
     var highlightedIcon = makeMarkerIcon('db6a36');
 
-    // Locations/Listings that will be shown to the user pulled from Model.
-    var locations = Model.locations;
-    // The following loop uses the lat and lng from the Model
-    // create an array of markers on initialize.
-    for (var i = 0; i < locations.length; i++) {
-        // Get the position from the location array.
-        var position = new google.maps.LatLng(
-            locations[i].lat,
-            locations[i].lng
-        );
-        var title = locations[i].title;
-        // Create a marker per location, and put into markers array.
-        var marker = new google.maps.Marker({
-            position: position,
-            title: title,
-            animation: google.maps.Animation.DROP,
-            icon: defaultIcon,
-            id: i
-        });
-        // Push the marker to our array of markers.
-        markers.push(marker);
-        // Create an onclick event to open the large infowindow at each marker.
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-        });
-        // Two event listeners - one for mouseover, one for mouseout,
-        // to change the colors back and forth.
-        marker.addListener('mouseover', function() {
-            this.setIcon(highlightedIcon);
-        });
-        marker.addListener('mouseout', function() {
-            this.setIcon(defaultIcon);
-        });
-    }
-
-    document.getElementById('show-listings').addEventListener('click', showListings);
-    document.getElementById('hide-listings').addEventListener('click', hideListings);
-
-    document.getElementById('zoom-to-area').addEventListener('click', function() {
-        zoomToArea();
-    });
 
 
-}
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
