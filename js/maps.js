@@ -164,16 +164,6 @@ function initMap() {
     //Bias the boundaries within the map for the zoom to area text.
     zoomAutocomplete.bindTo('bounds', map);
 
-    // These are the real estate listings that will be shown to the user.
-    // Normally we'd have these in a database instead.
-    var locations = [
-        {title: 'Carnival', location: {lat: 6.910468, lng: 79.850137}},
-        {title: 'Baskin Robbins', location: {lat: 6.908018, lng: 79.850759}},
-        {title: 'Roots - Crescat', location: {lat: 6.918126, lng: 79.848195}},
-        {title: 'Rio Ice cream', location: {lat: 6.874687, lng: 79.857813}},
-        {title: 'Il Gelato - Odel', location: {lat: 6.919013, lng: 79.865094}}
-    ];
-
     var largeInfowindow = new google.maps.InfoWindow();
 
 
@@ -184,10 +174,16 @@ function initMap() {
     // mouses over the marker.
     var highlightedIcon = makeMarkerIcon('db6a36');
 
-    // The following group uses the location array to create an array of markers on initialize.
+    // Locations/Listings that will be shown to the user pulled from Model.
+    var locations = Model.locations;
+    // The following loop uses the lat and lng from the Model
+    // create an array of markers on initialize.
     for (var i = 0; i < locations.length; i++) {
         // Get the position from the location array.
-        var position = locations[i].location;
+        var position = new google.maps.LatLng(
+            locations[i].lat,
+            locations[i].lng
+        );
         var title = locations[i].title;
         // Create a marker per location, and put into markers array.
         var marker = new google.maps.Marker({
