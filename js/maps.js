@@ -150,7 +150,7 @@ function initMap() {
         }
     ];
 
-    // Constructor creates a new map - only center and zoom are required.
+    // Constructor creates a new map - Location is Colombo, Sri Lanka.
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 6.911652, lng: 79.849640},
         zoom: 13,
