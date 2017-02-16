@@ -35,7 +35,11 @@ var ViewModel = function () {
     var map;
     var markers = [];
 
-    self.locationArray = ko.observableArray();
+    //Observeable Array from locations in Model Object
+    self.locationVM = new ko.observableArray();
+    //Observable to be used in Search
+    self.search = new ko.observable("");
+
 
     var initMap = function () {
 
@@ -197,11 +201,6 @@ var ViewModel = function () {
         });
 
 
-        //Observeable Array from locations in Model Object
-        self.locationVM = new ko.observableArray(Model.locations);
-
-        //Observable to be used in Search
-        self.search = new ko.observable("");
 
         // This autocomplete is for use in the geocoder entry box.
         function zoomAutoComplete(zoomAddress) {
