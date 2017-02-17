@@ -127,6 +127,11 @@
     width: 2em;
 }
 
+#locations-list {
+    color: #e5e3df;
+    margin: 1em;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

@@ -164,6 +164,7 @@ function initMap() {
     //Bias the boundaries within the map for the zoom to area text.
     zoomAutocomplete.bindTo('bounds', map);
 
+
     var largeInfowindow = new google.maps.InfoWindow();
 
 

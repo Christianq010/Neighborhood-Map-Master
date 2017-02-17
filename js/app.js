@@ -33,12 +33,24 @@ var Model = {
 var ViewModel = {
 
     self:this,
+    //Observable taken from Search Box value for search
+    searchBoxVal: ko.observable(""),
+
     //Observeable Array from locations in Model Object
-    locationVM: ko.observableArray(),
-    //Observable taken from Search Box value
-    searchBoxVal: ko.observable("")
+    locationsVM: ko.observableArray(Model.locations),
 
+    searchAddress: function(searchBoxVal) {
+        // Use the DOM search input as a value to pass it in the ViewModel.searchBoxVal observable
+    },
 
+    updateMap: function () {
+    //    uses the input to search for location and gathers data from foursquare
+    },
+
+    //Loads the titles from the array of hard coded locations when user initially opens the page
+    defaultLocations: function (title) {
+        Model.locations.title = title;
+    }
 
 
 };
