@@ -164,12 +164,11 @@ function initMap() {
     //Bias the boundaries within the map for the zoom to area text.
     zoomAutocomplete.bindTo('bounds', map);
 
-
     var largeInfowindow = new google.maps.InfoWindow();
-
 
     // Style the markers a bit. This will be our listing marker icon.
     var defaultIcon = makeMarkerIcon('f2657a');
+
 
     // Create a "highlighted location" marker color for when the user
     // mouses over the marker.
@@ -196,6 +195,7 @@ function initMap() {
         });
         // Push the marker to our array of markers.
         markers.push(marker);
+
         // Create an onclick event to open the large infowindow at each marker.
         marker.addListener('click', function() {
             populateInfoWindow(this, largeInfowindow);
