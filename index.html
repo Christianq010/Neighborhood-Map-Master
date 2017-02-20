@@ -52,10 +52,10 @@
                     <br>
                     <div class="row">
                         <div class="col-md-12 col-md-offset-1">
-                            <button id="show-listings" data-bind="" type="button" class="btn btn-secondary">Show Listings</button>
+                            <button id="show-listings" data-bind="click: showListings" type="button" class="btn btn-secondary">Show Listings</button>
                         <br>
                         <hr>
-                            <button id="hide-listings" data-bind="" type="button" class="btn btn-secondary">Hide Listings</button>
+                            <button id="hide-listings" data-bind="click: hideListings" type="button" class="btn btn-secondary">Hide Listings</button>
                         </div>
                     </div>
                     <br>
@@ -121,7 +121,7 @@
     <!--<script src="js/maps.js"></script>-->
     <!--Google Map API-->
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=viewModel.initMap">
+            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=viewModel.initMap">
     </script>
 
 </body>
