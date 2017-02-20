@@ -180,7 +180,7 @@ var Model = {
 };
 
 
-var ViewModel = {
+var viewModel = {
 
     self:this,
     map: {},
@@ -195,7 +195,7 @@ var ViewModel = {
 
 
     searchAddress: function(searchBoxVal) {
-        // Use the DOM search input as a value to pass it in the ViewModel.searchBoxVal observable
+        // Use the DOM search input as a value to pass it in the viewModel.searchBoxVal observable
     },
 
     updateMap: function() {
@@ -211,7 +211,7 @@ var ViewModel = {
 
         var mapDivID = document.getElementById('map');      //Create variable for Map on Div
 
-        var map = new google.maps.Map(mapDivID, {       //Creates a new map - Location is Colombo, Sri Lanka.
+        var map = new google.maps.Map(mapDivID,{       //Creates a new map - Location is Colombo, Sri Lanka.
             center: {lat: 6.911652, lng: 79.849640},
             zoom: 13,
             styles: Model.mapStyle,
@@ -242,11 +242,11 @@ var ViewModel = {
             });
 
             // Push the marker to our array of markers.
-            markers.push(ViewModel.markers);
+            markers.push(viewModel.markers);
 
             // Create an onclick event to open the large infowindow at each marker.
             marker.addListener('click', function() {
-                populateInfoWindow(this, infowindow);
+                populateInfoWindow(this, viewModel.infowindow);
             });
             // Two event listeners - one for mouseover, one for mouseout,
             // to change the colors back and forth.
@@ -283,7 +283,7 @@ var ViewModel = {
 
 };
 
-ko.applyBindings(ViewModel);
+ko.applyBindings(viewModel);
 
 
 // **** Menu | Navigation Bar Toggle Script ****** ////
