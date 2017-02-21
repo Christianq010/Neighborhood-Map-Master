@@ -155,7 +155,5 @@ function initMap() {
         mapTypeControl: false
         };
         map = new google.maps.Map(document.getElementById('map'),mapOptions);
-
     }
-    initMap();
 

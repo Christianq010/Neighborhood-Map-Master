@@ -92,48 +92,12 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
 
 var viewModel = {
     locations: [
-        {
-            title: 'Yala National Park',
-            lat: 6.426934,
-            lng: 81.308217,
-            wikiID: 'Yala_National_Park',
-            pageid: 560254
-        },
-        {
-            title: 'Wilpattu National Park',
-            lat: 8.455214,
-            lng: 80.042180,
-            wikiID: 'Wilpattu_National_Park',
-            pageid: 15347986
-        },
-        {
-            title: 'Gal Oya National Park',
-            lat: 7.228529,
-            lng: 81.471796,
-            wikiID: 'Gal_Oya_National_Park',
-            pageID: 23678456
-        },
-        {
-            title: 'Uda Walawe National Park',
-            lat: 6.473846,
-            lng: 80.898525,
-            wikiID: 'Udawalawe_National_Park',
-            pageID: 579524
-        },
-        {
-            title: 'Maduru Oya National Park',
-            lat: 7.525384,
-            lng: 81.256282,
-            wikiID: 'Maduru_Oya_National_Park',
-            padeID: 28595145
-        },
-        {
-            title: 'Horton Plains National Park',
-            lat: 6.802195,
-            lng: 80.806464,
-            wikiID: 'Horton_Plains_National_Park',
-            pageID: 509982
-        }
+        new MarkerInfo('Yala National Park', 6.426934, 81.308217, 'Yala_National_Park', 560254, defaultIcon),
+        new MarkerInfo('Wilpattu National Park', 8.455214, 80.042180, 'Wilpattu_National_Park', 15347986),
+        new MarkerInfo('Gal Oya National Park', 7.228529, 81.471796, 'Gal_Oya_National_Park', 23678456),
+        new MarkerInfo('Uda Walawe National Park', 6.473846, 80.898525, 'Udawalawe_National_Park', 579524),
+        new MarkerInfo('Maduru Oya National Park', 7.525384, 81.256282, 'Maduru_Oya_National_Park', 28595145),
+        new MarkerInfo('Horton Plains National Park', 6.802195, 80.806464, 'Horton_Plains_National_Park', 509982)
     ],
     searchBox: ko.observable('')
 
