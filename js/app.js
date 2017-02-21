@@ -138,7 +138,6 @@ var viewModel = {
     searchBox: ko.observable('')
 
 };
-
 ko.applyBindings(viewModel);
 
 
