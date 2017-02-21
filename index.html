@@ -41,30 +41,30 @@
                     <div class="row">
                         <div class="col-md-12 col-md-offset-1">
                             <span class="input-group-btn">
-                            <input id="zoom-to-area-text" data-bind="textInput: searchBoxVal" type="text" class="form-control" placeholder="Search for ...">
-                                <input id="search-button" data-bind='click: function() {}'
+                            <input id="zoom-to-area-text" data-bind="value: searchBox, valueUpdate: 'keyup'" type="text" class="form-control" placeholder="Search for ...">
+                            <input id="search-button" data-bind='click: function() {}'
                                         class="btn btn-secondary" type="button" value="Search" style="position: absolute;">
                             </span>
                             <br>
-                            <button id="zoom-to-area" data-bind="" type="button" class="btn btn-secondary">Zoom</button>
+                            <!--<button id="zoom-to-area" data-bind="" type="button" class="btn btn-secondary">Zoom</button>-->
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-12 col-md-offset-1">
-                            <button id="show-listings" data-bind="click: showListings" type="button" class="btn btn-secondary">Show Listings</button>
+                            <!--<button id="show-listings" data-bind="click: showListings" type="button" class="btn btn-secondary">Show Listings</button>-->
                         <br>
                         <hr>
-                            <button id="hide-listings" data-bind="click: hideListings" type="button" class="btn btn-secondary">Hide Listings</button>
+                            <!--<button id="hide-listings" data-bind="click: hideListings" type="button" class="btn btn-secondary">Hide Listings</button>-->
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <h4 class="col-md-offset-1">List of Default Locations</h4>
-                        <ul id="locations-list" data-bind="foreach: locationsVM">
-                            <li class=""><span data-bind="text: title"></span></li>
-                        </ul>
-                    </div>
+                    <!--<div class="row">-->
+                        <!--<h4 class="col-md-offset-1">List of Default Locations</h4>-->
+                        <!--<ul id="locations-list" data-bind="foreach: locationsVM">-->
+                            <!--<li class=""><span data-bind="text: title"></span></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
                 </div>
 
             <!--List -->
@@ -115,13 +115,13 @@
     <script src="js/lib/bootstrap.min.js"></script>
     <!--Knockout Library-->
     <script src="js/lib/knockout-v3.4.1.js"></script>
+    <!--Google Maps Script-->
+    <script src="js/maps.js"></script>
     <!-- App Main Script -->
     <script src="js/app.js"></script>
-    <!-- Google Maps Script -->
-    <!--<script src="js/maps.js"></script>-->
     <!--Google Map API-->
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=viewModel.initMap">
+            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyD2tKBjRkdAtSJthU2Wm135MmtptdoQxm8&v=3&callback=initMap">
     </script>
 
 </body>
