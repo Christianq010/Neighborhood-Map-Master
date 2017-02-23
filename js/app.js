@@ -33,6 +33,7 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
 
     this.infowindow = new google.maps.InfoWindow();
 
+
     // This function takes in a COLOR, and then creates a new marker
     // icon of that color. The icon will be 21 px wide by 34 high, have an origin
     // of 0, 0 and be anchored at 10, 34).
@@ -73,6 +74,13 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
         icon: defaultIcon
     });
 
+    this.marker = new google.maps.Marker({
+        position: new google.maps.LatLng(self.lng, self.lat),
+        map: map,
+        title: self.title,
+        icon: self.icon
+    });
+
     // Opens the info window for the location marker.
     this.openInfowindow = function() {
         for (var i=0; i < viewModel.locations.length; i++) {
@@ -98,7 +106,8 @@ var viewModel = {
         new MarkerInfo('Maduru Oya National Park', 7.525384, 81.256282, 'Maduru_Oya_National_Park', 28595145),
         new MarkerInfo('Horton Plains National Park', 6.802195, 80.806464, 'Horton_Plains_National_Park', 509982)
     ],
-    searchBox: ko.observable('')
+    searchBox: ko.observable(''),
+    mapUnavailable: ko.observable(false)
 
 };
 ko.applyBindings(viewModel);

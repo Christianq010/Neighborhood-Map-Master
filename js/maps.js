@@ -1,166 +1,168 @@
 var map;
 
-//Scripts executed only after Google Maps API Loaded
-// var isMapsApiLoaded = false;
-// window.mapsCallback = function () {
-//     isMapsApiLoaded = true;
-
     function initMap() {
-        // Create a styles array to use with the map.
-        var styles = [
-            {
-                "stylers": [
-                    {
-                        "saturation": -45
-                    },
-                    {
-                        "lightness": 13
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#8fa7b3"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#667780"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#333333"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#8fa7b3"
-                    },
-                    {
-                        "gamma": 2
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#a3becc"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#7a8f99"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#555555"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#a3becc"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#7a8f99"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#555555"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#bbd9e9"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#525f66"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "color": "#bbd9e9"
-                    },
-                    {
-                        "gamma": 2
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.line",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#a3aeb5"
-                    }
-                ]
-            }
-        ];
+        //Scripts executed only after Google Maps API Loaded
+        if (typeof window.google === 'object' && typeof window.google.maps === 'object') {
 
-        // Creates a new map - Location is Colombo, Sri Lanka.
-        var mapOptions = {
-            zoom: 8,
-            styles: styles,
-            center: new google.maps.LatLng(6.911652, 79.849640),
-            mapTypeControl: false
+            // Create a styles array to use with the map.
+            var styles = [
+                {
+                    "stylers": [
+                        {
+                            "saturation": -45
+                        },
+                        {
+                            "lightness": 13
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#8fa7b3"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#667780"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#333333"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#8fa7b3"
+                        },
+                        {
+                            "gamma": 2
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#a3becc"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#7a8f99"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#555555"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#a3becc"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#7a8f99"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#555555"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#bbd9e9"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#525f66"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#bbd9e9"
+                        },
+                        {
+                            "gamma": 2
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#a3aeb5"
+                        }
+                    ]
+                }
+            ];
+
+            // Creates a new map - Location is Colombo, Sri Lanka.
+            var mapOptions = {
+                zoom: 8,
+                styles: styles,
+                center: new google.maps.LatLng(6.911652, 79.849640),
+                mapTypeControl: false
             };
-            map = new google.maps.Map(document.getElementById('map'),mapOptions);
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        } else {
+            //if no google object found, display error div
+            viewModel.mapUnavailable(true);
         }
+    }
 
-    // };
+
 
