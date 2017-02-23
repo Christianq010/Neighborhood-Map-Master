@@ -29,7 +29,6 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
                 console.log(jqXHR);
                 self.content.setContent('<div>' + 'Service Currently Unavailable (Try again later)' + '</div>');
             });
-
     };
 
     this.infowindow = new google.maps.InfoWindow();
@@ -71,7 +70,7 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
         position: new google.maps.LatLng(self.lng, self.lat),
         map: map,
         title: self.title,
-        icon: self.icon
+        icon: defaultIcon
     });
 
     // Opens the info window for the location marker.
@@ -92,7 +91,7 @@ var MarkerInfo = function(title, lng, lat, wikiID, pageID, iconColor) {
 
 var viewModel = {
     locations: [
-        new MarkerInfo('Yala National Park', 6.426934, 81.308217, 'Yala_National_Park', 560254, defaultIcon),
+        new MarkerInfo('Yala National Park', 6.426934, 81.308217, 'Yala_National_Park', 560254),
         new MarkerInfo('Wilpattu National Park', 8.455214, 80.042180, 'Wilpattu_National_Park', 15347986),
         new MarkerInfo('Gal Oya National Park', 7.228529, 81.471796, 'Gal_Oya_National_Park', 23678456),
         new MarkerInfo('Uda Walawe National Park', 6.473846, 80.898525, 'Udawalawe_National_Park', 579524),
