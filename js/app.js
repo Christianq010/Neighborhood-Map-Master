@@ -27,11 +27,7 @@ var viewModel = {
         new MarkerInfo('Horton Plains National Park', 6.802195, 80.806464, 'Horton_Plains_National_Park', 509982)
     ],
     searchBox: ko.observable(''),
-    mapUnavailable: ko.observable(false),
-    // toggleMenu: ko.computed (function(e) {
-    //             e.preventDefault();
-    //             $("#wrapper").toggleClass("toggled");
-    // })
+    mapUnavailable: ko.observable(false)
 
 };
 
