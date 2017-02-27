@@ -1,3 +1,8 @@
+// **** Menu | Navigation Bar Toggle Script ****** ////
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
 
 // Class completely builds everything needed for each location marker.
 var MarkerInfo = function(title, lng, lat, wikiID, pageID, marker) {
@@ -22,14 +27,21 @@ var viewModel = {
         new MarkerInfo('Horton Plains National Park', 6.802195, 80.806464, 'Horton_Plains_National_Park', 509982)
     ],
     searchBox: ko.observable(''),
-    mapUnavailable: ko.observable(false)
+    mapUnavailable: ko.observable(false),
+    // toggleMenu: ko.computed (function(e) {
+    //             e.preventDefault();
+    //             $("#wrapper").toggleClass("toggled");
+    // })
 
 };
+
+// Search function for filtering through the list of locations based on the name of the location.
+    viewModel.search = ko.dependentObservable(function() {
+        var self = this;
+        var search = this.searchBox().toLowerCase();
+        return ko.utils.arrayFilter(self.locations, function(MarkerInfo) {
+            return MarkerInfo.title.toLowerCase().indexOf(search) >= 0;
+        });
+    }, viewModel);
+
 ko.applyBindings(viewModel);
-
-
-// **** Menu | Navigation Bar Toggle Script ****** ////
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});

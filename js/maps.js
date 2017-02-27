@@ -162,7 +162,7 @@ var infowindow;
             infowindow = new google.maps.InfoWindow();
         }
         else {
-            // if no google object found, display error div
+            // no google map loaded, display div error using knockout
             viewModel.mapUnavailable(true);
         }
 
@@ -231,14 +231,13 @@ var infowindow;
                     console.log(marker);
                     var extract = response.query.pages[Object.keys(response.query.pages)[0]].extract;
 
-                    infowindow.setContent(marker.title + '<br>' + extract);
-                    // self.content.setContent('<div>' + self.title + '</div>');
+                    infowindow.setContent('<div>'+ marker.title + '<br>' + extract + '</div>');
                     // document.getElementById('clicked-content').innerHTML = ('<div>' + response.query.pages[self.pageID].extract + '  <br>(Source: ' + '<a href=' + sourceURL + ' target="_blank">Wikipedia)</a>' + '</div>');
                     // // sets infowindow content on marker click
 
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR);
-                    // self.content.setContent('<div>' + 'Service Currently Unavailable (Try again later)' + '</div>');
+                    infowindow.setContent('<div>' + 'Service Currently Unavailable (Try again later)' + '</div>');
                 });
             }
 

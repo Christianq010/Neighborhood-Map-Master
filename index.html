@@ -39,13 +39,17 @@
             <!--Search Buttons -->
                 <div class="input-group">
                     <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
-                            <span class="input-group-btn">
-                            <input id="zoom-to-area-text" data-bind="value: searchBox, valueUpdate: 'keyup'" type="text" class="form-control" placeholder="Search for ...">
-                            <input id="search-button" data-bind='click: function() {}'
-                                        class="btn btn-secondary" type="button" value="Search" style="position: absolute;">
-                            </span>
+                        <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
+                            <!--<span class="input-group-btn">-->
+                            <!--<input id="zoom-to-area-text" data-bind="value: searchBox, valueUpdate: 'keyup'" type="text" class="form-control" placeholder="Search for ...">-->
+                            <!---->
+                            <!--<input id="search-button" data-bind='click: function() {}'-->
+                                        <!--class="btn btn-secondary" type="button" value="Search" style="position: absolute;">-->
+                            <!--</span>-->
                             <br>
+                            <input class="search-input" placeholder="Search for Places..." type="text" name="q" data-bind="value: searchBox, valueUpdate: 'keyup'">
+                            <ul class="location-list" data-bind="visible:searchBox, template: {name: 'location', foreach: search}">
+                            </ul>
                             <!--<button id="zoom-to-area" data-bind="" type="button" class="btn btn-secondary">Zoom</button>-->
                         </div>
                     </div>
@@ -67,22 +71,6 @@
                     <!--</div>-->
                 </div>
 
-            <!--List -->
-            <!--<ul class="sidebar-nav">-->
-                <!--<li class="sidebar-brand">-->
-                    <!--<a href="#">-->
-                        <!--Filter your Results-->
-                    <!--</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#">Restaurants</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a href="#">Bars, Cafe's etc</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-
-
         </div>
         <!-- /#sidebar-wrapper -->
     </div>
@@ -96,7 +84,7 @@
                     <div class="content col-lg-9">
                         <h2 class="navbar-heading">Neighborhood Map Project</h2>
                         <p>Use the button below to toggle the Menu.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <a href="#menu-toggle" data-bind="click: toggleMenu" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
             </div>
@@ -108,13 +96,13 @@
         </div>
          <!--/#page-map-wrapper-->
 
-        <div class="no-map" data-bind="visible: mapUnavailable">
-            <p>Google Maps is unavailable for display at this time.<br><br>Refresh the page, or try again later.</p>
-        </div>
+        <!--<div class="no-map" data-bind="visible: mapUnavailable">-->
+            <!--<p>Google Maps is unavailable for display at this time.<br><br>Refresh the page, or try again later.</p>-->
+        <!--</div>-->
 
 
     <script type="text/html" id="location">
-        <li class="location-item" data-bind="text: title, click: openInfowindow"></li>
+        <li class="location-item" data-bind="text: title"></li>
     </script>
 
 

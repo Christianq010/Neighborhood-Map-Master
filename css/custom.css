@@ -79,3 +79,19 @@ hr {
 #zoom-to-area {
     width: 24%;
 }
+
+.search-area {
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    left: 1%;
+    top: 2%;
+    z-index: 2;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.location-list {
+    padding: 0;
+    margin: 5px;
+}
