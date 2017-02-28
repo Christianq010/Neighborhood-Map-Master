@@ -92,6 +92,10 @@ hr {
 }
 
 .location-list {
-    padding: 0;
-    margin: 5px;
+    padding: 1em;
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: darkgrey;
+    list-style: none;
+    cursor: pointer;
 }

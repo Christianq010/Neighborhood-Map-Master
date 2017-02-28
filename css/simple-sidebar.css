@@ -127,9 +127,13 @@
     width: 2em;
 }
 
-#locations-list {
-    color: #e5e3df;
-    margin: 1em;
+.location-list {
+    padding: 1em;
+    margin: 0 0 0 0;
+    font-size: 1.2em;
+    color: darkgrey;
+    list-style: none;
+    cursor: pointer;
 }
 
 .no-map {
