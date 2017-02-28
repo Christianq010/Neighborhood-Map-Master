@@ -28,7 +28,6 @@ var viewModel = {
     ],
     searchBox: ko.observable(''),
     mapUnavailable: ko.observable(false)
-
 };
 
 // Search function for filtering through the list of locations based on the name of the location.
@@ -39,5 +38,12 @@ var viewModel = {
             return MarkerInfo.title.toLowerCase().indexOf(search) >= 0;
         });
     }, viewModel);
+
+    viewModel.clickInfoWindow = function() {
+        // locations click binding function executed in view
+        // marker.openInfoWindow();
+    };
+
+
 
 ko.applyBindings(viewModel);
