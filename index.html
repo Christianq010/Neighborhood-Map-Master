@@ -30,40 +30,40 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">Search for Locations</li>
-            </ul>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">Search for Locations</li>
+        </ul>
 
-            <!--Search Buttons -->
-                <div class="input-group">
-                    <div class="row">
-                        <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
-                            <br>
-                            <input class="search-input" placeholder="Search for Places..." type="text" name="q" data-bind="value: searchBox, valueUpdate: 'keyup'">
-                            <ul class="location-list" data-bind="foreach: locations" >
-                                <li data-bind="text: $data, click: $root.clickEventHandlerFunction"></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12 col-md-offset-1">
-                            <!--<button id="show-listings" data-bind="click: showListings" type="button" class="btn btn-secondary">Show Listings</button>-->
+        <!--Search Buttons -->
+            <div class="input-group">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
                         <br>
-                        <hr>
-                            <a href="#menu-toggle" data-bind="" class="btn btn-default menu-toggle">Toggle Menu</a>
-                        </div>
+                        <input class="search-input" placeholder="Search for Places..." type="text" name="q" data-bind="value: searchBox, valueUpdate: 'keyup'">
+                        <ul class="location-list" data-bind="visible:searchBox, template: {name: 'location-title', foreach: search}" >
+                            <!--<li data-bind="text: $data, click: $root.clickEventHandlerFunction"></li>-->
+                        </ul>
                     </div>
-                    <br>
-                    <!--<div class="row">-->
-                        <!--<h4 class="col-md-offset-1">List of Default Locations</h4>-->
-                        <!--<ul id="locations-list" data-bind="foreach: locationsVM">-->
-                            <!--<li class=""><span data-bind="text: title"></span></li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-1">
+                        <!--<button id="show-listings" data-bind="click: showListings" type="button" class="btn btn-secondary">Show Listings</button>-->
+                    <br>
+                    <hr>
+                        <a href="#menu-toggle" data-bind="" class="btn btn-default menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+                <br>
+                <!--<div class="row">-->
+                    <!--<h4 class="col-md-offset-1">List of Default Locations</h4>-->
+                    <!--<ul id="locations-list" data-bind="foreach: locationsVM">-->
+                        <!--<li class=""><span data-bind="text: title"></span></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            </div>
 
         </div>
         <!-- /#sidebar-wrapper -->
@@ -95,8 +95,8 @@
         </div>
 
 
-    <script type="text/html" id="location">
-        <li class="location-item" data-bind="text: title"></li>
+    <script type="text/html" id="location-title">
+        <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
     </script>
 
 

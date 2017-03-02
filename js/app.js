@@ -30,7 +30,7 @@ var viewModel = {
     searchBox: ko.observable(''),
     mapUnavailable: ko.observable(false),
     clickEventHandlerFunction: function() {
-        infowindow(this);
+        openInfowindow(marker);
     }
 
 };
@@ -39,11 +39,10 @@ var viewModel = {
     viewModel.search = ko.dependentObservable(function() {
         var self = this;
         var search = this.searchBox().toLowerCase();
-        return ko.utils.arrayFilter(self.locations, function(MarkerInfo) {
-            return MarkerInfo.title.toLowerCase().indexOf(search) >= 0;
+        return ko.utils.arrayFilter(self.locations, function(markerLocation) {
+            return markerLocation.title.toLowerCase().indexOf(search) >= 0;
         });
     }, viewModel);
-
 
 
 ko.applyBindings(viewModel);
