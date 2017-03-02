@@ -1,5 +1,6 @@
 var map;
 var infowindow;
+var openInfowindow;
 
     function initMap() {
         //Scripts executed only after Google Maps API Loaded
@@ -162,10 +163,12 @@ var infowindow;
             infowindow = new google.maps.InfoWindow();
         }
         else {
-            // no google map loaded, display div error using knockout
+            // Load error div using knockout if Google Map does not successfully load
             viewModel.mapUnavailable(true);
         }
 
+        //Marker and functions drawn from Sample Code on Google Maps API Course on Udacity
+        //https://www.udacity.com/course/google-maps-apis--ud864
         for (var i = 0; i < viewModel.locations.length; i++) {
             var self = viewModel.locations[i];
             // This function takes in a COLOR, and then creates a new marker
@@ -182,10 +185,10 @@ var infowindow;
                 return markerImage;
             }
 
-            // Style the markers a bit. This will be our listing marker icon.
+            // Custom Style applied to markers. This will be our listing marker icon.
             var defaultIcon = makeMarkerIcon('0091ff');
 
-            // Create a "highlighted location" marker color for when the user
+            // "Highlighted location" marker color for when the user
             // mouses over the marker.
             var highlightedIcon = makeMarkerIcon('FFFF24');
 
@@ -207,8 +210,8 @@ var infowindow;
                 this.setIcon(defaultIcon);
             });
 
-            // Opens the info window for the location marker.
-            function openInfowindow (marker) {
+            // Opens a infowindow for a marker when clicked upon.
+            var openInfowindow = function (marker) {
 
                 console.log(marker);
 
@@ -216,11 +219,11 @@ var infowindow;
                 infowindow.setContent(marker.title);
                 infowindow.open(map,marker);
 
-
-                var sourceURL = 'https://en.wikipedia.org/wiki/' + marker.wikiID;
                 // variable for source link
+                var sourceURL = 'https://en.wikipedia.org/wiki/' + marker.wikiID;
+
+                // extract from wikipedia api used for the ajax call
                 var urls = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikiID;
-                // url variable for wikipedia api returning only extract, is fed into ajax call
 
                 $.ajax({
                     type: 'GET',
@@ -233,20 +236,19 @@ var infowindow;
 
                     infowindow.setContent('<div>'+ marker.title + '<br>' + extract + '</div>');
                     // document.getElementById('clicked-content').innerHTML = ('<div>' + response.query.pages[self.pageID].extract + '  <br>(Source: ' + '<a href=' + sourceURL + ' target="_blank">Wikipedia)</a>' + '</div>');
-                    // // sets infowindow content on marker click
+
 
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR);
-                    infowindow.setContent('<div>' + 'Service Currently Unavailable (Try again later)' + '</div>');
+                    infowindow.setContent('<div>' + 'No Service/ Connection Detected (Please try again later)' + '</div>');
                 });
             }
 
-            // Assigns a click event listener to the marker to open the info window.
+            // Event listener opens infowindow upon being clicked.
             this.addListener = google.maps.event.addListener(self.marker,'click', function() {
                 openInfowindow(this);
             });
         }
-
 
     }
 

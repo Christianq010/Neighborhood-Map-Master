@@ -42,7 +42,8 @@
                         <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
                             <br>
                             <input class="search-input" placeholder="Search for Places..." type="text" name="q" data-bind="value: searchBox, valueUpdate: 'keyup'">
-                            <ul class="location-list" data-bind="visible:searchBox, template: {name: 'location', foreach: search}">
+                            <ul class="location-list" data-bind="foreach: locations" >
+                                <li data-bind="text: $data, click: $root.clickEventHandlerFunction"></li>
                             </ul>
                         </div>
                     </div>
