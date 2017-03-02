@@ -27,10 +27,13 @@ var viewModel = {
         new MarkerInfo('Maduru Oya National Park', 7.525384, 81.256282, 'Maduru_Oya_National_Park', 28595145),
         new MarkerInfo('Horton Plains National Park', 6.802195, 80.806464, 'Horton_Plains_National_Park', 509982)
     ],
+    //observable used for running a search against locations array
     searchBox: ko.observable(''),
+    //observable to determine if error div should be shown
     mapUnavailable: ko.observable(false),
+    //observable used for opening infowindow when li item clikced from search
     clickEventHandlerFunction: function() {
-        openInfowindow(this);
+        openInfowindow(this.marker);
     }
 
 };

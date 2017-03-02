@@ -42,6 +42,8 @@
                     <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
                         <br>
                         <input class="search-input" placeholder="Search for Places..." type="text" name="q" data-bind="value: searchBox, valueUpdate: 'keyup'">
+
+                        <!--The template binding populates the <li class=location-list> with the results rendering search from app.js. -->
                         <ul class="location-list" data-bind="visible:searchBox, template: {name: 'location-title', foreach: search}" >
                             <!--<li data-bind="text: $data, click: $root.clickEventHandlerFunction"></li>-->
                         </ul>
@@ -57,12 +59,6 @@
                     </div>
                 </div>
                 <br>
-                <!--<div class="row">-->
-                    <!--<h4 class="col-md-offset-1">List of Default Locations</h4>-->
-                    <!--<ul id="locations-list" data-bind="foreach: locationsVM">-->
-                        <!--<li class=""><span data-bind="text: title"></span></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
             </div>
 
         </div>
@@ -94,7 +90,7 @@
             <p>Google Maps is unavailable for display at this time.<br><br>Refresh the page, or try again later.</p>
         </div>
 
-
+    <!--Populates the pages with the search results through the template binding on knockoutJS-->
     <script type="text/html" id="location-title">
         <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
     </script>
