@@ -246,7 +246,7 @@ var openInfowindow;
 
             // Event listener opens infowindow upon being clicked.
             this.addListener = google.maps.event.addListener(self.marker,'click', function() {
-                openInfowindow(marker);
+                openInfowindow(this);
                 console.log(this);
             });
         }

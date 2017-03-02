@@ -127,6 +127,10 @@
     width: 2em;
 }
 
+.search-input {
+    font-size: 1.15em;
+}
+
 .location-list {
     padding: 1em;
     margin: 0 0 0 0;
