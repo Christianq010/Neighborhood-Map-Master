@@ -21,6 +21,10 @@ To run the application make sure you are first connected to the internet, then s
 * https://www.udacity.com/course/google-maps-apis--ud864
 * https://www.mediawiki.org/wiki/API:Main_page
 * National Parks in Sri Lanka [https://en.wikipedia.org/wiki/List_of_national_parks_of_Sri_Lanka].
+* Projects I drew inspiration from
+ * https://github.com/jshanks24/Udacity-Neighborhood-Map
+ * https://github.com/Sentry71/neighborhood-map
+ * https://github.com/CristianAThompson/MapProject
 
 ## Credits - 
 Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
