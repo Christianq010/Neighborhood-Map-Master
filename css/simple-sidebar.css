@@ -127,11 +127,11 @@
     width: 2em;
 }
 
-.search-input {
+.search-box {
     font-size: 1.15em;
 }
 
-.location-list {
+.resultsList {
     padding: 1em;
     margin: 0 0 0 0;
     font-size: 1.2em;
@@ -145,12 +145,16 @@
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
-    background-color: #444;
+    background-color: rgb(104, 104, 104);
     z-index: 102;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.0em;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1em 0 0 5em;
+}
+
+.marker-title {
     text-align: center;
 }
 

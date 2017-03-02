@@ -4,6 +4,7 @@ var openInfowindow;
 
     function initMap() {
         //Scripts executed only after Google Maps API Loaded
+        //Solution found at https://stackoverflow.com/questions/9228958/how-to-check-if-google-maps-api-is-loaded
         if (typeof window.google === 'object' && typeof window.google.maps === 'object') {
 
             // Create a styles array to use with the map.
@@ -154,7 +155,7 @@ var openInfowindow;
 
             // Creates a new map - Location is Colombo, Sri Lanka.
             var mapOptions = {
-                zoom: 8,
+                zoom: 7,
                 styles: styles,
                 center: new google.maps.LatLng(6.911652, 79.849640),
                 mapTypeControl: false
@@ -186,11 +187,11 @@ var openInfowindow;
             }
 
             // Custom Style applied to markers. This will be our listing marker icon.
-            var defaultIcon = makeMarkerIcon('0091ff');
+            var defaultIcon = makeMarkerIcon('395634');
 
             // "Highlighted location" marker color for when the user
             // mouses over the marker.
-            var highlightedIcon = makeMarkerIcon('FFFF24');
+            var highlightedIcon = makeMarkerIcon('dd5f63');
 
             viewModel.locations[i].marker = new google.maps.Marker({
                 position: new google.maps.LatLng(self.lng, self.lat),
@@ -219,25 +220,24 @@ var openInfowindow;
                 infowindow.setContent(marker.title);
                 infowindow.open(map,marker);
 
-                // variable for source link
-                var sourceURL = 'https://en.wikipedia.org/wiki/' + marker.wikiID;
+                // URL of Wikipedia Article for Source Reference
+                var wikiSource = 'https://en.wikipedia.org/wiki/' + marker.wikiID;
 
-                // extract from wikipedia api used for the ajax call
-                var urls = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikiID;
+                // Extract taken from Wikipedia API
+                var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikiID;
 
                 $.ajax({
                     type: 'GET',
                     dataType: 'jsonp',
                     data: {},
-                    url: urls
+                    url: wikiURL
                 }).done(function(response) {
                     console.log(marker);
                     var extract = response.query.pages[Object.keys(response.query.pages)[0]].extract;
 
-                    infowindow.setContent('<div>'+ marker.title + '<br>' + extract + '</div>');
-                    // document.getElementById('clicked-content').innerHTML = ('<div>' + response.query.pages[self.pageID].extract + '  <br>(Source: ' + '<a href=' + sourceURL + ' target="_blank">Wikipedia)</a>' + '</div>');
+                    infowindow.setContent('<div>' + '<h4 class="marker-title">' + marker.title + '</h4>' + extract + '<br>(Source: ' + '<a href=' + wikiSource + '>Wikipedia)</a>' +'</div>');
 
-
+                //Set Content if failure of AJAX request
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR);
                     infowindow.setContent('<div>' + 'No Service/ Connection Detected (Please try again later)' + '</div>');
