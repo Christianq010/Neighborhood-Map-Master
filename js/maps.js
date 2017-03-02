@@ -242,11 +242,11 @@ var openInfowindow;
                     console.log(jqXHR);
                     infowindow.setContent('<div>' + 'No Service/ Connection Detected (Please try again later)' + '</div>');
                 });
-            }
+            };
 
             // Event listener opens infowindow upon being clicked.
             this.addListener = google.maps.event.addListener(self.marker,'click', function() {
-                openInfowindow(this);
+                openInfowindow(marker);
                 console.log(this);
             });
         }

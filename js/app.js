@@ -30,7 +30,7 @@ var viewModel = {
     searchBox: ko.observable(''),
     mapUnavailable: ko.observable(false),
     clickEventHandlerFunction: function() {
-        openInfowindow(marker);
+        openInfowindow(this);
     }
 
 };
