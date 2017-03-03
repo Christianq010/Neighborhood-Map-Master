@@ -42,13 +42,25 @@ var viewModel = {
     };
 
 // Search function for filtering through the list of locations based on the name of the location.
-    viewModel.search = ko.dependentObservable(function() {
+    viewModel.search = ko.computed(function() {
         var self = this;
         var searchResult = this.searchBox().toLowerCase();
         return ko.utils.arrayFilter(self.locations, function(markerLocation) {
             return markerLocation.title.toLowerCase().indexOf(searchResult) >= 0;
         });
     }, viewModel);
+
+// Show or hide the associated markers on the map when searched
+    viewModel.search.subscribe(function() {
+        var searchCompare = ko.utils.compareArrays(self.locations, self.search);
+        return ko.utils.arrayForEach(searchCompare, function(markerLocation) {
+            if (markerLocation.status === 'deleted') {
+                markerLocation.marker.setVisible(false);
+            } else {
+                markerLocation.marker.setVisible(true);
+            }
+        });
+    });
 
 
 ko.applyBindings(viewModel);
