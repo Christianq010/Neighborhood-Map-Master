@@ -28,7 +28,7 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" data-bind="css: { 'toggled': visibleMenu }">
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -54,7 +54,7 @@
                     <div class="col-md-12 col-md-offset-1">
                     <br>
                     <hr>
-                        <a href="#menu-toggle" data-bind="" class="btn btn-default menu-toggle">Toggle Menu</a>
+                        <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
                 <br>
@@ -73,7 +73,7 @@
                     <div class="content col-lg-9">
                         <h2 class="navbar-heading">National Wildlife Parks of Sri Lanka</h2>
                         <p>Use the button below to toggle the Menu.</p>
-                        <a href="#menu-toggle" data-bind="" class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</a>
+                        <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
             </div>
