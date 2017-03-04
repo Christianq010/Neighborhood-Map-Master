@@ -45,6 +45,8 @@ var viewModel = {
     viewModel.search = ko.computed(function() {
         var self = this;
         var searchResult = this.searchBox().toLowerCase();
+        var searchCompare = ko.utils.compareArrays(self.locations, self.search);
+
         return ko.utils.arrayFilter(self.locations, function(markerLocation) {
             return markerLocation.title.toLowerCase().indexOf(searchResult) >= 0;
         });
@@ -52,15 +54,16 @@ var viewModel = {
 
 // Show or hide the associated markers on the map when searched
     viewModel.search.subscribe(function() {
-        var searchCompare = ko.utils.compareArrays(self.locations, self.search);
+        var self = this;
+        var searchCompare = ko.utils.compareArrays(viewModel.locations, viewModel.search());
         return ko.utils.arrayForEach(searchCompare, function(markerLocation) {
             if (markerLocation.status === 'deleted') {
-                markerLocation.marker.setVisible(false);
+                markerLocation.value.marker.setVisible(false);
             } else {
-                markerLocation.marker.setVisible(true);
+                markerLocation.value.marker.setVisible(true);
+                // markerLocation.value.marker.setIcon(highlightedIcon);
             }
         });
     });
-
 
 ko.applyBindings(viewModel);
