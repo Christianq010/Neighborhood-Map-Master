@@ -48,22 +48,30 @@ var viewModel = {
         var searchCompare = ko.utils.compareArrays(self.locations, self.search);
 
         return ko.utils.arrayFilter(self.locations, function(markerLocation) {
-            return markerLocation.title.toLowerCase().indexOf(searchResult) >= 0;
+            var title = markerLocation.title.toLowerCase();
+            var matched = title.indexOf(searchResult) >= 0;
+            var marker = markerLocation.marker;
+            if (marker) {
+                marker.setVisible(matched);
+            }
+            // console.log(markerLocation.marker);
+            return matched;
         });
     }, viewModel);
 
 // Show or hide the associated markers on the map when searched
-    viewModel.search.subscribe(function() {
-        var self = this;
-        var searchCompare = ko.utils.compareArrays(viewModel.locations, viewModel.search());
-        return ko.utils.arrayForEach(searchCompare, function(markerLocation) {
-            if (markerLocation.status === 'deleted') {
-                markerLocation.value.marker.setVisible(false);
-            } else {
-                markerLocation.value.marker.setVisible(true);
-                // markerLocation.value.marker.setIcon(highlightedIcon);
-            }
-        });
-    });
+//     viewModel.search.subscribe(function() {
+//         var self = this;
+//         console.log(viewModel.search());
+//         var searchCompare = ko.utils.compareArrays(viewModel.locations, viewModel.search());
+//         return ko.utils.arrayForEach(searchCompare, function(markerLocation) {
+//             if (markerLocation.status === 'deleted') {
+//                 markerLocation.value.marker.setVisible(false);
+//             } else {
+//                 markerLocation.value.marker.setVisible(true);
+//                 // markerLocation.value.marker.setIcon(highlightedIcon);
+//             }
+//         });
+//     });
 
 ko.applyBindings(viewModel);
