@@ -27,6 +27,7 @@ To run the application make sure you are first connected to the internet, then s
  * https://github.com/CristianAThompson/MapProject
 
 ## Credits - 
+* http://knockoutjs.com/ - Simplify dynamic JavaScript UIs with the Model-View-View Model (MVVM)
 Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
 * https://twitter.com/davidmillerskt

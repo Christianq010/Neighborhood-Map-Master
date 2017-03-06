@@ -1,6 +1,7 @@
 var map;
 var infowindow;
 var openInfowindow;
+var lastSelected;
 
     function initMap() {
         //Scripts executed only after Google Maps API Loaded
@@ -211,9 +212,16 @@ var openInfowindow;
                 this.setIcon(defaultIcon);
             });
 
+
             // Opens a infowindow for a marker when clicked upon.
             //Also animates(bounces) and highlights marker when clicked
             openInfowindow = function (marker) {
+
+                //Last Selected Variable used to select only latest marker
+                if (lastSelected != null) {
+                    lastSelected.setIcon(defaultIcon);
+                }
+                lastSelected = marker;
 
                 console.log(marker);
 
