@@ -42,6 +42,7 @@ var viewModel = {
     };
 
 // Search function for filtering through the list of locations based on the name of the location.
+// Show or hide the associated markers on the map when searched.
     viewModel.search = ko.computed(function() {
         var self = this;
         var searchResult = this.searchBox().toLowerCase();
@@ -58,20 +59,5 @@ var viewModel = {
             return matched;
         });
     }, viewModel);
-
-// Show or hide the associated markers on the map when searched
-//     viewModel.search.subscribe(function() {
-//         var self = this;
-//         console.log(viewModel.search());
-//         var searchCompare = ko.utils.compareArrays(viewModel.locations, viewModel.search());
-//         return ko.utils.arrayForEach(searchCompare, function(markerLocation) {
-//             if (markerLocation.status === 'deleted') {
-//                 markerLocation.value.marker.setVisible(false);
-//             } else {
-//                 markerLocation.value.marker.setVisible(true);
-//                 // markerLocation.value.marker.setIcon(highlightedIcon);
-//             }
-//         });
-//     });
 
 ko.applyBindings(viewModel);

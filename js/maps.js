@@ -212,11 +212,14 @@ var openInfowindow;
             });
 
             // Opens a infowindow for a marker when clicked upon.
+            //Also animates(bounces) and highlights marker when clicked
             openInfowindow = function (marker) {
 
                 console.log(marker);
 
+                marker.setIcon(highlightedIcon);
                 map.panTo(marker.getPosition());
+                marker.setAnimation(google.maps.Animation.BOUNCE);
                 infowindow.setContent(marker.title);
                 infowindow.open(map,marker);
 
