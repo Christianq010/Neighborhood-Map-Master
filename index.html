@@ -43,8 +43,9 @@
                             <br>
                             <input class="search-box" placeholder="Search .." type="text" data-bind="value: searchBox, valueUpdate: 'keyup'">
 
-                            <!--The template binding populates the <li class=location-list> with the results rendering search from app.js. -->
-                            <ul class="resultsList" data-bind="visible:searchBox, template: {name: 'location-title', foreach: search}" >
+                            <!--Show <li class=location-list> and filter against the results from search -->
+                            <ul class="resultsList" data-bind="foreach: search">
+                                <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
                             </ul>
                         </div>
                     </div>
@@ -95,11 +96,6 @@
         </div>
 
     </main>
-
-    <!--Populates the pages with the search results through the template binding on knockoutJS-->
-    <script type="text/html" id="location-title">
-        <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
-    </script>
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

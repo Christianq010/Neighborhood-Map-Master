@@ -227,7 +227,13 @@ var lastSelected;
 
                 marker.setIcon(highlightedIcon);
                 map.panTo(marker.getPosition());
+
+                //Set Animation on marker and set it to stop after 700ms
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function() {
+                    marker.setAnimation(null);
+                }, 700);
+
                 infowindow.setContent(marker.title);
                 infowindow.open(map,marker);
 
