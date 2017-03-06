@@ -26,12 +26,12 @@ var viewModel = {
     visibleMenu: ko.observable(false),
     //observable used for running a search against locations array
     searchBox: ko.observable(''),
-    //observable to determine if error div should be shown
-    mapUnavailable: ko.observable(false),
     //observable used for opening infowindow when <li> item clicked from search
     clickEventHandlerFunction: function() {
         openInfowindow(this.marker);
-    }
+    },
+    //observable to determine if error div should be shown
+    mapUnavailable: ko.observable(false)
 
 };
 

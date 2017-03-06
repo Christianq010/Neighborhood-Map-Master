@@ -256,5 +256,10 @@ var openInfowindow;
 
     }
 
+    // Fallback error handling method for Google Maps
+    mapError = function () {
+        viewModel.mapUnavailable(true);
+    };
+
 
 
