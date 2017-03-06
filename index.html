@@ -26,75 +26,82 @@
 
 </head>
 
-<body>
+<main>
 
-    <div id="wrapper" data-bind="css: { 'toggled': visibleMenu }">
+    <!--Side Menu -->
+    <aside>
+        <!--Observable that toggles CSS class on Side Menu Hide/Show-->
+        <div id="wrapper" data-bind="css: { 'toggled': visibleMenu }">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">Search Parks</li>
+            </ul>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">Search Parks</li>
-        </ul>
+            <!--Search Buttons -->
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
+                            <br>
+                            <input class="search-box" placeholder="Search .." type="text" data-bind="value: searchBox, valueUpdate: 'keyup'">
 
-        <!--Search Buttons -->
-            <div class="input-group">
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
-                        <br>
-                        <input class="search-box" placeholder="Search .." type="text" data-bind="value: searchBox, valueUpdate: 'keyup'">
-
-                        <!--The template binding populates the <li class=location-list> with the results rendering search from app.js. -->
-                        <ul class="resultsList" data-bind="visible:searchBox, template: {name: 'location-title', foreach: search}" >
-                            <!--<li data-bind="text: $data, click: $root.clickEventHandlerFunction"></li>-->
-                        </ul>
+                            <!--The template binding populates the <li class=location-list> with the results rendering search from app.js. -->
+                            <ul class="resultsList" data-bind="visible:searchBox, template: {name: 'location-title', foreach: search}" >
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-12 col-md-offset-1">
                     <br>
-                    <hr>
-                        <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle">Toggle Menu</a>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                        <br>
+                        <hr>
+                            <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle">Toggle Menu</a>
+                        </div>
                     </div>
+                    <br>
                 </div>
-                <br>
-            </div>
 
+            </div>
+            <!-- /#sidebar-wrapper -->
         </div>
-        <!-- /#sidebar-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+        <!-- /#wrapper -->
+    </aside>
 
 
-
+    <main>
         <!--Page Content-->
-            <div id="page-content-wrapper">
-                <div class="container">
-                    <div class="content col-lg-9">
-                        <h2 class="navbar-heading">National Wildlife Parks of Sri Lanka</h2>
-                        <p>Use the button below to toggle the Menu.</p>
-                        <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</a>
-                    </div>
+        <div id="page-content-wrapper">
+            <div class="container">
+                <div class="content col-lg-9">
+                    <h2 class="navbar-heading">National Wildlife Parks of Sri Lanka</h2>
+                    <p>Use the button below to toggle the Menu.</p>
+                    <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</a>
                 </div>
             </div>
+        </div>
         <!--/#page-content-wrapper-->
 
-        <!--Page Map-->
-        <div>
-            <div id="map"></div>
-        </div>
-         <!--/#page-map-wrapper-->
+        <article>
+            <!--Page Google Map-->
+            <div>
+                <div id="map"></div>
+            </div>
+             <!--/#page-map-wrapper-->
+        </article>
 
-    <!--Observable for Google Maps Error Div -->
-    <div class="no-map" data-bind="visible: mapUnavailable">
-        <p>Sorry Google Maps is unable to load right now.<br>Please check your connection and refresh the page, or try again later.</p>
-    </div>
+        <div class="error-div-wrapper">
+        <!--Observable for Google Maps Error Div -->
+            <div class="no-map" data-bind="visible: mapUnavailable">
+                <p>Sorry Google Maps is unable to load right now.<br>Please check your connection and refresh the page, or try again later.</p>
+            </div>
+        </div>
+
+    </main>
 
     <!--Populates the pages with the search results through the template binding on knockoutJS-->
     <script type="text/html" id="location-title">
         <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
     </script>
-
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
