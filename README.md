@@ -1,8 +1,8 @@
-###Udacity Front-End Web Developer Nanodegree – Project 05
+### Udacity Front-End Web Developer Nanodegree – Project 05
 
-#Neighborhood Map Project
+# Neighborhood Map Project
 
-###Project Overview - 
+### Project Overview - 
 
 <br>
 This Web App is an interactive Google Map of Sri Lanka with various National Wildlife Parks marked all around the map. Click on one of the location markers to display the title of the park and a snippet of that location via Wikipedia.
